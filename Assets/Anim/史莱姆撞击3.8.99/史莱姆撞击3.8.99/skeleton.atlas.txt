@@ -1,0 +1,20 @@
+
+skeleton.png
+size: 200,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body/baby001
+  rotate: false
+  xy: 2, 2
+  size: 160, 124
+  orig: 200, 200
+  offset: 20, 31
+  index: -1
+eye/eye001
+  rotate: true
+  xy: 164, 24
+  size: 102, 34
+  orig: 200, 200
+  offset: 49, 74
+  index: -1

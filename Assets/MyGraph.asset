@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39bccd35fea0f3b4cb34cc09463cf0cd, type: 3}
+  m_Name: MyGraph
+  m_EditorClassIdentifier: 
+  nodes:
+  - GUID: 9844e8d4-0925-4fef-837f-cc081f9597fa
+    Position: {x: 1220.8, y: 29.600002}
+    UniqueName: TestNode
+    Fields: '{}'
+  - GUID: f04f33fe-6b5d-494d-9260-1525f346c938
+    Position: {x: 271.2, y: 59.2}
+    UniqueName: TestNode
+    Fields: '{}'
+  - GUID: a5710db5-fa33-4ae4-9cd7-b626eeae38f2
+    Position: {x: 721.6, y: 40.8}
+    UniqueName: TestNode
+    Fields: '{}'
+  links:
+  - FromGUID: a5710db5-fa33-4ae4-9cd7-b626eeae38f2
+    ToGUID: 9844e8d4-0925-4fef-837f-cc081f9597fa
+    ToPort: TestInput
+    FromPort: TestOutput
+  - FromGUID: f04f33fe-6b5d-494d-9260-1525f346c938
+    ToGUID: a5710db5-fa33-4ae4-9cd7-b626eeae38f2
+    ToPort: TestInput
+    FromPort: TestOutput
+  view:
+    Position: {x: -184.8, y: 239.2}
+    Scale: {x: 1, y: 1}
