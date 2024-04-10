@@ -3,7 +3,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Assets.FNode
+namespace FNode.Editor
 {
     public abstract class NodeBase : Node,IUnique
     {

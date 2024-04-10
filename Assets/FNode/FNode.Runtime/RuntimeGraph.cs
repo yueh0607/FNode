@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.FNode.Data
+namespace FNode.Editor.Data
 {
     public class RuntimeGraph
     {

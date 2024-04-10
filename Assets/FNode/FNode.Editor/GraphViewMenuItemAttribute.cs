@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.FNode
+namespace FNode.Editor
 {
     public class GraphViewMenuItemAttribute : Attribute
     {

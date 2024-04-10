@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 
-namespace Assets.FNode.Data
+namespace FNode.Editor
 {
     /// <summary>
     /// 图数据

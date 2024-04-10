@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.FNode
+namespace FNode.Editor
 {
     public abstract class GenericNodeBase<T> : NodeBase where T : class
     {

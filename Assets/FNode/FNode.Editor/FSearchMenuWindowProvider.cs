@@ -5,7 +5,7 @@ using System.Reflection;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-namespace Assets.FNode
+namespace FNode.Editor
 {
     public delegate bool SerchMenuWindowOnSelectEntryDelegate(SearchTreeEntry searchTreeEntry,
         SearchWindowContext context);
