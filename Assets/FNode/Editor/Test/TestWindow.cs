@@ -25,8 +25,8 @@ public class TestWindow : EditorWindow
         this.rootVisualElement.Add(view);
 
         Toolbar toolbar = new Toolbar();
-        toolbar.Add(new ToolbarButton() { text="工具"});
-        
+        toolbar.Add(new ToolbarButton() { text = "工具" });
+
 
         view.Add(toolbar);
         view.ImportFrom("Assets/MyGraph.asset");
@@ -34,6 +34,7 @@ public class TestWindow : EditorWindow
 
     private void OnDestroy()
     {
-        view.ExportTo("Assets/MyGraph.asset");
+        if (view.Changed)
+            view.ExportTo("Assets/MyGraph.asset");
     }
 }

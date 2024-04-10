@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Assets.FNode.Data
 {
+
+    /// <summary>
+    /// 连接数据
+    /// </summary>
     [Serializable]
     public class LinkData
     {

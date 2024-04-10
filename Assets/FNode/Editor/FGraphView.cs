@@ -52,7 +52,20 @@ public class FGraphView : GraphView
         var grid = new GridBackground();
         Insert(0, grid);
         grid.StretchToParentSize();
+
+
+        this.graphViewChanged += (change) =>
+        {
+            Changed = true;
+            return change;
+        };
     }
+
+
+    /// <summary>
+    /// 是否已经改变
+    /// </summary>
+    public bool Changed { get; private set; } = false;
 
 
 

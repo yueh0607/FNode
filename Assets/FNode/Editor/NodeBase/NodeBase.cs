@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Assets.FNode
 {
-    public abstract class NodeBase : Node
+    public abstract class NodeBase : Node,IUnique
     {
         private string _guid;
 
@@ -125,7 +121,7 @@ namespace Assets.FNode
         /// <param name="child"></param>
         public void AddContent(VisualElement child)
         {
-            this.mainContainer.Add(child);
+            this.contentContainer.Add(child);
         }
 
 

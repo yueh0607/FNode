@@ -4,6 +4,9 @@ using UnityEngine.Rendering;
 
 namespace Assets.FNode.Data
 {
+    /// <summary>
+    /// 图数据
+    /// </summary>
     public class GraphData : ScriptableObject
     {
         /// <summary>
