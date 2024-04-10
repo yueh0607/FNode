@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-[GraphViewMenuItem("TestNode","Test/TestNode")]
+[GraphViewMenuItem("TestNode","Test/TestNode",0,1)]
 public class TestNode : DefaultNodeBase
 {
     public TestNode() : base("测试节点")

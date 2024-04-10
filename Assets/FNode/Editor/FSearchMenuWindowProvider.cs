@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -32,7 +33,7 @@ namespace Assets.FNode
         /// <summary>
         /// 搜索的节点拥有者ID
         /// </summary>
-        public int OwnerID { get; private set; } = 0;
+        public int OwnerID { get; set; } = 0;
 
         /// <summary>
         /// 菜单树列表
@@ -79,6 +80,7 @@ namespace Assets.FNode
                 if (atts != null)
                     foreach (var att in atts)
                     {
+                        if (!att.Owner.Contains(OwnerID)) continue;
                         Menus.Add((type, att));
                         TypeMapper.TryAdd(att.UniqueKey, type);
                     }

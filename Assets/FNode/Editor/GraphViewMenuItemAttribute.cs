@@ -22,7 +22,7 @@ namespace Assets.FNode
         /// <summary>
         /// 觉得节点在图的归属(默认为0)
         /// </summary>
-        public int Owner { get; private set; }
+        public int[] Owner { get; private set; }
 
         /// <summary>
         /// 路径根据"/"分割的部分
@@ -30,11 +30,11 @@ namespace Assets.FNode
 
         public string[] Parts { get; private set; }
 
-        public GraphViewMenuItemAttribute(string uniqueKey,string menuItem,int belong=0)
+        public GraphViewMenuItemAttribute(string uniqueKey,string menuItem,params int[] belongs)
         {
             UniqueKey = uniqueKey;
             MenuItem = menuItem;
-            Owner = belong;
+            Owner = belongs;
             Parts = MenuItem.Split('/');
         }
     }

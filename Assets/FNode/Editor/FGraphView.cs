@@ -242,6 +242,7 @@ public class FGraphView : GraphView
                     nodeMapper.TryAdd(node.GUID, node);
                 }
             }
+            else Debug.LogError($"丢失的节点类：{nodeData.UniqueName} 原信息将会在下一次保存时永久丢失");
         }
         //恢复连接信息
         foreach (var linkData in data.links)
@@ -258,7 +259,9 @@ public class FGraphView : GraphView
                         Connect(from, to);
                     }
                 }
+                else Debug.LogError($"丢失的节点：{linkData.ToGUID} 原信息将会在下一次保存时永久丢失");
             }
+            else Debug.LogError($"丢失的节点：{linkData.FromGUID} 原信息将会在下一次保存时永久丢失");
         }
 
         //恢复观察信息

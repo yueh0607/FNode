@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: MyGraph
   m_EditorClassIdentifier: 
   nodes:
-  - GUID: 9844e8d4-0925-4fef-837f-cc081f9597fa
-    Position: {x: 1220.8, y: 29.600002}
-    UniqueName: TestNode
-    Fields: '{}'
   - GUID: f04f33fe-6b5d-494d-9260-1525f346c938
     Position: {x: 271.2, y: 59.2}
     UniqueName: TestNode
     Fields: '{}'
   - GUID: a5710db5-fa33-4ae4-9cd7-b626eeae38f2
-    Position: {x: 721.6, y: 40.8}
+    Position: {x: 718.4, y: 50.399998}
+    UniqueName: TestNode
+    Fields: '{}'
+  - GUID: 9844e8d4-0925-4fef-837f-cc081f9597fa
+    Position: {x: 1220, y: 60.000004}
     UniqueName: TestNode
     Fields: '{}'
   links:
@@ -35,5 +35,5 @@ MonoBehaviour:
     ToPort: TestInput
     FromPort: TestOutput
   view:
-    Position: {x: -184.8, y: 239.2}
+    Position: {x: -1000.8, y: 257.6}
     Scale: {x: 1, y: 1}

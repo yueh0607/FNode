@@ -20,6 +20,7 @@ public class TestWindow : EditorWindow
     {
 
         var provider = ScriptableObject.CreateInstance<FSearchMenuWindowProvider>();
+        provider.OwnerID = 1;
 
         view = new FGraphView(this, provider);
         this.rootVisualElement.Add(view);
