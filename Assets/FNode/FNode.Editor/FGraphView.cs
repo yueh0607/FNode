@@ -135,20 +135,20 @@ namespace FNode.Editor
             if (File.Exists(Path.Combine(dataPath.Parent.FullName, assetPath)))
             {
 
-                GraphData data = AssetDatabase.LoadAssetAtPath<GraphData>(assetPath);
+                SOGraphData data = AssetDatabase.LoadAssetAtPath<SOGraphData>(assetPath);
                 Export(data);
             }
             else
             {
-                GraphData data = ScriptableObject.CreateInstance<GraphData>();
+                SOGraphData data = ScriptableObject.CreateInstance<SOGraphData>();
                 AssetDatabase.CreateAsset(data, assetPath);
                 Export(data);
 
             }
         }
-        public void Export(GraphData data)
+        public void Export(SOGraphData data)
         {
-            GraphData tempData = ScriptableObject.CreateInstance<GraphData>();
+            SOGraphData tempData = ScriptableObject.CreateInstance<SOGraphData>();
             bool result = true;
             try
             {
@@ -212,19 +212,19 @@ namespace FNode.Editor
 
             if (File.Exists(Path.Combine(dataPath.Parent.FullName, assetPath)))
             {
-                GraphData data = AssetDatabase.LoadAssetAtPath<GraphData>(assetPath);
+                SOGraphData data = AssetDatabase.LoadAssetAtPath<SOGraphData>(assetPath);
                 Import(data);
             }
             else
             {
-                GraphData data = ScriptableObject.CreateInstance<GraphData>();
+                SOGraphData data = ScriptableObject.CreateInstance<SOGraphData>();
                 AssetDatabase.CreateAsset(data, assetPath);
                 Import(data);
             }
 
 
         }
-        public void Import(GraphData data)
+        public void Import(SOGraphData data)
         {
             if (!_provider.MapppersBuilded) _provider.BuildMappers();
             Dictionary<string, NodeBase> nodeMapper = new Dictionary<string, NodeBase>();
