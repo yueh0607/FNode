@@ -9,31 +9,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39bccd35fea0f3b4cb34cc09463cf0cd, type: 3}
+  m_Script: {fileID: 0}
   m_Name: MyGraph
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: FNode.Editor:FNode.Editor:SOGraphData
   nodes:
-  - GUID: f04f33fe-6b5d-494d-9260-1525f346c938
-    Position: {x: 271.2, y: 59.2}
+  - GUID: 34b2c945-74d4-484d-9739-8ae9da6f182a
+    Position: {x: 295.2, y: 326.40002}
     UniqueName: TestNode
     Fields: '{}'
-  - GUID: a5710db5-fa33-4ae4-9cd7-b626eeae38f2
-    Position: {x: 718.4, y: 50.399998}
-    UniqueName: TestNode
-    Fields: '{}'
-  - GUID: 9844e8d4-0925-4fef-837f-cc081f9597fa
-    Position: {x: 1220.8, y: 59.2}
+  - GUID: 357f0309-a523-41c8-94fa-fdd36054c331
+    Position: {x: -346.4, y: 335.2}
     UniqueName: TestNode
     Fields: '{}'
   links:
-  - FromGUID: a5710db5-fa33-4ae4-9cd7-b626eeae38f2
-    ToGUID: 9844e8d4-0925-4fef-837f-cc081f9597fa
-    ToPort: TestInput
-    FromPort: TestOutput
-  - FromGUID: f04f33fe-6b5d-494d-9260-1525f346c938
-    ToGUID: a5710db5-fa33-4ae4-9cd7-b626eeae38f2
+  - FromGUID: 357f0309-a523-41c8-94fa-fdd36054c331
+    ToGUID: 34b2c945-74d4-484d-9739-8ae9da6f182a
     ToPort: TestInput
     FromPort: TestOutput
   view:
-    Position: {x: -188, y: 267.2}
+    Position: {x: 319.2, y: -109.6}
     Scale: {x: 1, y: 1}
