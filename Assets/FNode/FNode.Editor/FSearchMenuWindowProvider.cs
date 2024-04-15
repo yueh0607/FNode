@@ -8,22 +8,19 @@ using UnityEngine;
 namespace FNode.Editor
 {
     public delegate bool SerchMenuWindowOnSelectEntryDelegate(SearchTreeEntry searchTreeEntry,
-        SearchWindowContext context);
+    SearchWindowContext context);
     public interface ISearchMenuWindowProvider : ISearchWindowProvider
     {
         /// <summary>
-        /// 归属者ID
+        /// 归属者ID : 指明当前图能找到的节点ID
         /// </summary>
         int OwnerID { get; }
 
         /// <summary>
-        /// 选择菜单项时调用
+        /// 在进入右键菜单时用于处理的委托
         /// </summary>
         SerchMenuWindowOnSelectEntryDelegate OnSelectEntryHandler { get; set; }
     }
-
-
-
 
     /// <summary>
     /// 搜索菜单提供者

@@ -161,7 +161,7 @@ namespace FNode.Editor
                     nodeData.GUID = nodeBase.GUID;
                     nodeData.UniqueName = nodeBase.GetType().GetCustomAttribute<GraphViewMenuItemAttribute>().UniqueKey;
                     nodeData.Position = nodeBase.Position;
-                    nodeData.Fields = nodeBase.SerializeJson();
+                    nodeData.Fields = ((INodeFieldsSerializeBehaviour)nodeBase).InternalSerialize();
 
                     tempData.nodes.Add(nodeData);
                 }
@@ -237,7 +237,7 @@ namespace FNode.Editor
                     if (_provider.UniqueMapper.TryGetValue(nodeData.UniqueName, out var attribute))
                     {
                         var node = CreateNode(type, nodeData.Position);
-                        node.DeserializeJson(nodeData.Fields);
+                        ((INodeFieldsSerializeBehaviour)node).InternalDeserialize(nodeData.Fields);
                         node.GUID = nodeData.GUID;
                         nodeMapper.TryAdd(node.GUID, node);
                     }
@@ -251,10 +251,10 @@ namespace FNode.Editor
                 {
                     if (nodeMapper.TryGetValue(linkData.ToGUID, out var nodeTo))
                     {
-                        var from = nodeFrom.TryGetOutputPort(linkData.FromPort);
-                        var to = nodeTo.TryGetInputPort(linkData.ToPort);
+                        var fromResult = nodeFrom.TryGetOutputPort(linkData.FromPort,out var from);
+                        var toResult = nodeTo.TryGetInputPort(linkData.ToPort,out var to);
 
-                        if (from != null && to != null)
+                        if (fromResult && toResult)
                         {
                             Connect(from, to);
                         }

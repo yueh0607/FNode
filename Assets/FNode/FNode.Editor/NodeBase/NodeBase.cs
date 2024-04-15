@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 namespace FNode.Editor
 {
-    public abstract class NodeBase : Node,IUnique
+    public abstract class NodeBase : Node, IUnique,INodeFieldsSerializeBehaviour
     {
         private string _guid;
 
@@ -35,7 +35,11 @@ namespace FNode.Editor
                 this.SetPosition(new Rect(value, Vector2.zero));
             }
         }
-        TextField _guidText;
+
+        /// <summary>
+        /// 节点GUID显示框
+        /// </summary>
+        private readonly TextField _guidText;
         public NodeBase(string nodeName)
         {
             GUID = System.Guid.NewGuid().ToString();
@@ -44,36 +48,43 @@ namespace FNode.Editor
             _guidText.value = GUID;
             this.mainContainer.Add(_guidText);
             _guidText.SendToBack();
+            _guidText.SetEnabled(false);
         }
-
-
-
 
         /// <summary>
         /// 尝试获取输出端口
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public Port TryGetOutputPort(string name)
+        public bool TryGetOutputPort(string name, out Port existedPort)
         {
             foreach (var element in this.outputContainer.Children())
                 if (element is Port port)
                     if (port.name == name)
-                        return port;
-            return null;
+                    {
+                        existedPort = port;
+                        return true;
+                    }
+
+            existedPort = null;
+            return false;
         }
         /// <summary>
         /// 尝试获取输入端口
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public Port TryGetInputPort(string name)
+        public bool TryGetInputPort(string name, out Port existedPort)
         {
             foreach (var element in this.inputContainer.Children())
                 if (element is Port port)
                     if (port.name == name)
-                        return port;
-            return null;
+                    {
+                        existedPort = port;
+                        return true;
+                    }
+            existedPort = null;
+            return false;
         }
 
         /// <summary>
@@ -116,7 +127,7 @@ namespace FNode.Editor
         }
 
         /// <summary>
-        /// 添加元素
+        /// 在内容中添加
         /// </summary>
         /// <param name="child"></param>
         public void AddContent(VisualElement child)
@@ -124,8 +135,11 @@ namespace FNode.Editor
             this.contentContainer.Add(child);
         }
 
+        protected abstract void OnDeserialize(string json);
+        protected abstract string OnSerialize();
 
-        public abstract void DeserializeJson(string json);
-        public abstract string SerializeJson();
+        void INodeFieldsSerializeBehaviour.InternalDeserialize(string json) => OnDeserialize(json);
+
+        string INodeFieldsSerializeBehaviour.InternalSerialize() => OnSerialize();
     }
 }

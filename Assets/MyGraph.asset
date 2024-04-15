@@ -22,7 +22,7 @@ MonoBehaviour:
     UniqueName: TestNode
     Fields: '{}'
   - GUID: 9844e8d4-0925-4fef-837f-cc081f9597fa
-    Position: {x: 1220, y: 60.000004}
+    Position: {x: 1220.8, y: 59.2}
     UniqueName: TestNode
     Fields: '{}'
   links:
@@ -35,5 +35,5 @@ MonoBehaviour:
     ToPort: TestInput
     FromPort: TestOutput
   view:
-    Position: {x: -1000.8, y: 257.6}
+    Position: {x: -188, y: 267.2}
     Scale: {x: 1, y: 1}

@@ -10,6 +10,7 @@ namespace FNode.Editor
     public abstract class GenericNodeBase<T> : NodeBase where T : class
     {
         private T fieldsInfo = null;
+
         /// <summary>
         /// 字段信息
         /// </summary>
@@ -29,13 +30,11 @@ namespace FNode.Editor
 
         }
 
-        public override string SerializeJson() => JsonConvert.SerializeObject(FieldsInfo);
-        public override void DeserializeJson(string json)
+        protected override string OnSerialize() => JsonConvert.SerializeObject(FieldsInfo);
+        protected override void OnDeserialize(string json)
         {
             T info = JsonConvert.DeserializeObject<T>(json);
             fieldsInfo = info;
         }
-
-
     }
 }
