@@ -1,8 +1,8 @@
 {
-    "name": "FNode.Editor",
-    "rootNamespace": "FNode.Editor",
+    "name": "FNode.Sample",
+    "rootNamespace": "",
     "references": [
-        "GUID:74cac1cc8c228da4b99a906f2a27c86f"
+        "GUID:b0f020e099f8d9345a6bb2ce40b8dbc3"
     ],
     "includePlatforms": [
         "Editor"

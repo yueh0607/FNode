@@ -4,8 +4,12 @@ using UnityEngine;
 
 namespace FNode.Editor
 {
-    public class GraphData 
+
+    public interface ITextSerializedObject
     {
-        
+
+        void Deserialize(string str);
+
+        string Serialize();
     }
 }

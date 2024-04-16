@@ -5,6 +5,12 @@ using UnityEngine.UIElements;
 
 namespace FNode.Editor
 {
+
+    public interface INodeFieldsSerializeBehaviour
+    {
+        public void InternalDeserialize(string json);
+        public string InternalSerialize();
+    }
     public abstract class NodeBase : Node, IUnique,INodeFieldsSerializeBehaviour
     {
         private string _guid;

@@ -17,12 +17,12 @@ namespace FNode.Editor
         public Vector2 Position;
 
         /// <summary>
-        /// 节点类型
+        /// 节点唯一标识
         /// </summary>
         public string UniqueName;
 
         /// <summary>
-        /// 字段信息
+        /// 节点特有字段信息
         /// </summary>
         public string Fields;
     }

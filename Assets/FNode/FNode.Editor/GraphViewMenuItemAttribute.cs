@@ -30,12 +30,25 @@ namespace FNode.Editor
 
         public string[] Parts { get; private set; }
 
+        internal Type AssociationType { get; private set; }
         public GraphViewMenuItemAttribute(string uniqueKey,string menuItem,params int[] belongs)
         {
             UniqueKey = uniqueKey;
             MenuItem = menuItem;
             Owner = belongs;
             Parts = MenuItem.Split('/');
+        }
+
+        internal GraphViewMenuItemAttribute(string uniqueKey, string menuItem,  int[] belongs, Type associationType)
+            :this(uniqueKey,menuItem,belongs)
+        {
+            AssociationType = associationType;
+        }
+
+        internal GraphViewMenuItemAttribute(GraphViewMenuItemAttribute otherAtt,Type associationType)
+            :this(otherAtt.UniqueKey,otherAtt.MenuItem,otherAtt.Owner,associationType)
+        {
+            
         }
     }
 }
