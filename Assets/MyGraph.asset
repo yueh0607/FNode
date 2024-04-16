@@ -12,20 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: MyGraph
   m_EditorClassIdentifier: FNode.Editor:FNode.Editor:SOGraphData
-  nodes:
-  - GUID: 34b2c945-74d4-484d-9739-8ae9da6f182a
-    Position: {x: 295.2, y: 326.40002}
-    UniqueName: TestNode
-    Fields: '{}'
-  - GUID: 357f0309-a523-41c8-94fa-fdd36054c331
-    Position: {x: -346.4, y: 335.2}
-    UniqueName: TestNode
-    Fields: '{}'
-  links:
-  - FromGUID: 357f0309-a523-41c8-94fa-fdd36054c331
-    ToGUID: 34b2c945-74d4-484d-9739-8ae9da6f182a
-    ToPort: TestInput
-    FromPort: TestOutput
+  nodes: []
+  links: []
   view:
-    Position: {x: 319.2, y: -109.6}
+    Position: {x: 0, y: 0}
     Scale: {x: 1, y: 1}
