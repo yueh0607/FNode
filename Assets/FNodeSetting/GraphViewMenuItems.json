@@ -1,0 +1,15 @@
+[
+  {
+    "UniqueKey": "TestNode",
+    "MenuItem": "Test/TestNode",
+    "Owner": [
+      0,
+      1
+    ],
+    "Parts": [
+      "Test",
+      "TestNode"
+    ],
+    "NodeType": "TestNode, FNode.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+  }
+]
