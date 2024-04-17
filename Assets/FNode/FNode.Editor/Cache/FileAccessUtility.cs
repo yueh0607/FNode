@@ -61,5 +61,20 @@ namespace FNode.Editor
                 return true;
             }
         }
+
+        /// <summary>
+        /// 确保文件或目录必定存在，不会发送文件/目录不存在的异常
+        /// </summary>
+        public static void FileAndDirectoryMustExist(string fileOrDir)
+        {
+            if(Path.HasExtension(fileOrDir))
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(fileOrDir));
+                if(File.Exists(fileOrDir))
+                    File.Create(fileOrDir).Dispose();
+            }
+            else
+                Directory.CreateDirectory(Path.GetDirectoryName(fileOrDir));
+        }
     }
 }

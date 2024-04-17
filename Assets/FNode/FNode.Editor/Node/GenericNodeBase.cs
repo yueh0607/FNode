@@ -30,11 +30,23 @@ namespace FNode.Editor
 
         }
 
-        protected override string OnSerialize() => JsonConvert.SerializeObject(FieldsInfo);
+        protected override string OnSerialize()
+        {
+            SyncToData();
+
+            return TextSerializeStrategy.Serialize(FieldsInfo, 1);
+
+        }
         protected override void OnDeserialize(string json)
         {
-            T info = JsonConvert.DeserializeObject<T>(json);
+            T info =TextSerializeStrategy.Deserialize<T>(json,1);
             fieldsInfo = info;
+            SyncFromData();
         }
+
+
+        protected abstract void SyncToData();
+
+        protected abstract void SyncFromData();
     }
 }

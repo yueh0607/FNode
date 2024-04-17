@@ -14,4 +14,14 @@ public abstract class DefaultNodeBase : GenericNodeBase<EmptyNodeData>
     {
 
     }
+    protected override void SyncToData()
+    {
+
+    }
+
+    protected override void SyncFromData()
+    {
+
+    }
+
 }
