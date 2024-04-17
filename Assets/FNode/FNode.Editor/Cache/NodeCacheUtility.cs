@@ -7,6 +7,7 @@ using System;
 using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace FNode.Editor
 {
@@ -23,6 +24,7 @@ namespace FNode.Editor
         [MenuItem("FNode/BuildNodeCache")]
         public static void BuildNodeCache()
         {
+            Stopwatch watch = Stopwatch.StartNew();
             List<GraphViewMenuItemAttribute> nodeDescriptionItemList = new List<GraphViewMenuItemAttribute>(256);
 
             Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
@@ -64,8 +66,10 @@ namespace FNode.Editor
                 throw new IOException("GraphViewMenuItems.json is in use, Please close it and try again");
 
             File.WriteAllText(cachePath, text);
+            watch.Stop();
+            UnityEngine.Debug.Log($"Build Node Cache Success in {watch.Elapsed.TotalSeconds}s , Total {nodeDescriptionItemList.Count}");
 
-            Debug.Log($"Build Node Cache Success , Total {nodeDescriptionItemList.Count}");
+
         }
 
         /// <summary>

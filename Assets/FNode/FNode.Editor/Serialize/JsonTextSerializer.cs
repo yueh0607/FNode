@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,8 @@ namespace FNode.Editor
 
         public override T Deserialize<T>(string str)
         {
+            if (string.IsNullOrEmpty(str)) 
+                return Activator.CreateInstance<T>();
             return JsonConvert.DeserializeObject<T>(str);
         }
 

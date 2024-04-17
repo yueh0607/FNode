@@ -22,7 +22,7 @@ namespace FNode.Editor
         /// <summary>
         /// 觉得节点在图的归属(默认为0)
         /// </summary>
-        public int[] Owner { get; private set; }
+        public int[] Owners { get; private set; }
 
         /// <summary>
         /// 路径根据"/"分割的部分
@@ -35,7 +35,7 @@ namespace FNode.Editor
         {
             UniqueKey = uniqueKey;
             MenuItem = menuItem;
-            Owner = belongs;
+            Owners = belongs;
             Parts = MenuItem.Split('/');
         }
 
@@ -46,9 +46,15 @@ namespace FNode.Editor
         }
 
         internal GraphViewMenuItemAttribute(GraphViewMenuItemAttribute otherAtt,Type associationType)
-            :this(otherAtt.UniqueKey,otherAtt.MenuItem,otherAtt.Owner,associationType)
+            :this(otherAtt.UniqueKey,otherAtt.MenuItem,otherAtt.Owners,associationType)
         {
             
+        }
+
+
+        public override string ToString()
+        {
+            return $"UniqueKey:{UniqueKey},MenuItem:{MenuItem},Owners:{string.Join('|',Owners)},AssociationType:{AssociationType.FullName}";
         }
     }
 }

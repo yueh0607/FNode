@@ -2,7 +2,7 @@
   {
     "UniqueKey": "TestNode",
     "MenuItem": "Test/TestNode",
-    "Owner": [
+    "Owners": [
       0,
       1
     ],

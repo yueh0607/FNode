@@ -6,7 +6,7 @@ namespace FNode.Editor
     /// <summary>
     /// 图数据
     /// </summary>
-    public class SOGraphData : ScriptableObject
+    public class GraphData 
     {
         /// <summary>
         /// 节点
@@ -22,8 +22,5 @@ namespace FNode.Editor
         /// 视图信息
         /// </summary>
         public ViewData view = new ViewData();
-
-        
-
     }
 }
