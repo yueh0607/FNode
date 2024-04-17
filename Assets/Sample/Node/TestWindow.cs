@@ -1,6 +1,4 @@
 using FNode.Editor;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEditor.UIElements;
@@ -8,47 +6,83 @@ using UnityEngine;
 
 public class TestWindow : EditorWindow
 {
-    [MenuItem("Test", menuItem = "Test/Grpah")]
-    static void Open()
+    private const string GraphFilePath = "Assets/MyGraph.json";
+    private const string EditorPrefsKey = "MyGraph";
+
+    private FGraphView view;
+
+    [MenuItem("Test/Graph")]
+    public static void Open()
     {
         var window = GetWindow<TestWindow>();
         window.Show();
-        window.Init();
-
+        window.Initialize();
     }
-    FGraphView view;
-    void Init()
-    {
 
+    private void Initialize()
+    {
+        view = CreateGraphView();
+        SetupToolbar();
+
+        LoadGraphFromFile();
+        LoadViewData();
+    }
+
+    private FGraphView CreateGraphView()
+    {
         var provider = ScriptableObject.CreateInstance<FSearchMenuWindowProvider>();
         provider.OwnerID = 0;
-       
-        view = new FGraphView(this, provider);
-        this.rootVisualElement.Add(view);
 
-        Toolbar toolbar = new Toolbar();
-        toolbar.Add(new ToolbarButton() { text = "工具" });
+        var graphView = new FGraphView(this, provider);
+        rootVisualElement.Add(graphView);
 
+        return graphView;
+    }
 
+    private void SetupToolbar()
+    {
+        var toolbar = new Toolbar();
+        var toolbarButton = new ToolbarButton { text = "工具" };
+        toolbar.Add(toolbarButton);
         view.Add(toolbar);
-        if (!File.Exists("Assets/MyGraph.json"))
+    }
+
+    private void LoadGraphFromFile()
+    {
+        if (!File.Exists(GraphFilePath))
         {
-            File.Create("Assets/MyGraph.json").Dispose();
+            File.Create(GraphFilePath).Dispose();
         }
-        view.Deserialize(File.ReadAllText("Assets/MyGraph.json"));
-        AssetDatabase.Refresh();
+
+        string graphData = File.ReadAllText(GraphFilePath);
+        view.Deserialize(graphData);
+    }
+
+    private void LoadViewData()
+    {
+        string viewData = EditorPrefs.GetString(EditorPrefsKey);
+        view.SetViewData(viewData);
     }
 
     private void OnDestroy()
     {
+        SaveGraphToFile();
+        SaveViewData();
+        AssetDatabase.Refresh();
+    }
+
+    private void SaveGraphToFile()
+    {
         if (view.Changed)
         {
-            if (!File.Exists("Assets/MyGraph.json"))
-            {
-                File.Create("Assets/MyGraph.json").Dispose();
-            }
-            File.WriteAllText("Assets/MyGraph.json", view.Serialize());
+            string graphData = view.Serialize();
+            File.WriteAllText(GraphFilePath, graphData);
         }
-        AssetDatabase.Refresh();
+    }
+
+    private void SaveViewData()
+    {
+        string viewData = view.GetViewData();
+        EditorPrefs.SetString(EditorPrefsKey, viewData);
     }
 }

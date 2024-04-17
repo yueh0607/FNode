@@ -8,6 +8,7 @@ namespace FNode.Editor
     /// </summary>
     public class GraphData 
     {
+
         /// <summary>
         /// 节点
         /// </summary>
@@ -17,10 +18,5 @@ namespace FNode.Editor
         /// 连接
         /// </summary>
         public List<LinkData> links = new List<LinkData>();
-
-        /// <summary>
-        /// 视图信息
-        /// </summary>
-        public ViewData view = new ViewData();
     }
 }

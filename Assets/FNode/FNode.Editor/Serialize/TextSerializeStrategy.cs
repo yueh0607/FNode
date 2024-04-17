@@ -6,16 +6,16 @@ namespace FNode.Editor
 {
     internal enum SerializeType
     {
-        Json
+        NewtonsoftJson
     }
     internal static class TextSerializeStrategy
     {
-        const SerializeType type = SerializeType.Json;
+        const SerializeType type = SerializeType.NewtonsoftJson;
         public static string Serialize<T>(T obj, int settingGroup=0)
         {
             switch (type)
             {
-                case SerializeType.Json:
+                case SerializeType.NewtonsoftJson:
                     return JsonTextSerializer.Instance.Serialize<T>(obj,settingGroup);
             }
             throw new System.Exception("Not supported");
@@ -25,7 +25,7 @@ namespace FNode.Editor
         {
             switch (type)
             {
-                case SerializeType.Json:
+                case SerializeType.NewtonsoftJson:
                     return JsonTextSerializer.Instance.Deserialize<T>(text,settingGroup);
             }
             throw new System.Exception("Not supported");

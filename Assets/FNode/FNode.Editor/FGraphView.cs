@@ -165,14 +165,15 @@ namespace FNode.Editor
                 else Debug.LogError($"丢失的节点：{linkData.FromGUID} 此节点及其相关的连接将会在下一次保存时永久丢失");
             }
 
-            //恢复观察信息
-            viewTransform.position = data.view.Position;
-            viewTransform.scale = data.view.Scale;
+            ////恢复观察信息
+            //viewTransform.position = data.view.Position;
+            //viewTransform.scale = data.view.Scale;
         }
 
         public string Serialize()
         {
             GraphData data = Activator.CreateInstance<GraphData>();
+
             foreach (var node in nodes)
             {
                 NodeBase nodeBase = (NodeBase)node;
@@ -195,7 +196,27 @@ namespace FNode.Editor
                 data.links.Add(linkData);
             }
             string result = TextSerializeStrategy.Serialize(data,1);
+
             return result;
+        }
+
+
+        public string GetViewData()
+        {
+            ViewData viewData = new ViewData();
+            viewData.Position = viewTransform.position;
+            viewData.Scale = viewTransform.scale;
+            string result = TextSerializeStrategy.Serialize(viewData,1);
+            return result;
+        }
+
+        public void SetViewData(string viewData)
+        {
+            if(string.IsNullOrEmpty(viewData)) return;
+            ViewData data = TextSerializeStrategy.Deserialize<ViewData>(viewData,1);
+            viewTransform.position = data.Position;
+            viewTransform.scale = data.Scale;
+            
         }
     }
 
