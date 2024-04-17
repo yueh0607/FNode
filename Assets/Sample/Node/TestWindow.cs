@@ -52,6 +52,7 @@ public class TestWindow : EditorWindow
         if (!File.Exists(GraphFilePath))
         {
             File.Create(GraphFilePath).Dispose();
+            EditorPrefs.DeleteKey(EditorPrefsKey);
         }
 
         string graphData = File.ReadAllText(GraphFilePath);
