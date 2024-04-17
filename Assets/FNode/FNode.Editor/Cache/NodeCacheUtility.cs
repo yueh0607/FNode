@@ -54,7 +54,7 @@ namespace FNode.Editor
             string text = string.Empty;
             try
             {
-                text = JsonTextSerializer.Instance.Serialize(nodeDescriptionItems);
+                text = TextSerializeStrategy.Serialize<GraphViewMenuItemAttribute[]>(nodeDescriptionItems);
             }
             catch (Exception e)
             {
@@ -69,8 +69,8 @@ namespace FNode.Editor
             watch.Stop();
             UnityEngine.Debug.Log($"Build Node Cache Success in {watch.Elapsed.TotalSeconds}s , Total {nodeDescriptionItemList.Count}");
 
-
-        }
+            AssetDatabase.Refresh();
+        }    
 
         /// <summary>
         /// 获取节点缓存
@@ -91,7 +91,7 @@ namespace FNode.Editor
                     //反序列化异常
                     try
                     {
-                        nodeDescriptionItems = JsonTextSerializer.Instance.Deserialize<GraphViewMenuItemAttribute[]>(text);
+                        nodeDescriptionItems = TextSerializeStrategy.Deserialize<GraphViewMenuItemAttribute[]>(text);
                     }
                     catch (Exception e)
                     {
@@ -112,7 +112,7 @@ namespace FNode.Editor
                     if (EditorUtility.DisplayDialog("Error", $"The cache file does not exist. Click Generate Now to continue. You can also choose not to continue generating and use other methods to complete the cache file.", "Generate Now!", "Ignore"))
                     {
                         BuildNodeCache();
-                        GetGraphViewMenuItems();
+                        GetGraphViewMenuItems(); 
                     }
                     else throw new FileNotFoundException("GraphViewMenuItems.json not found, Please BuildNodeCaches at FNode/BuildNodeCache");
                 }

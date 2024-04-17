@@ -126,9 +126,12 @@ namespace FNode.Editor
 
         public void Deserialize(string str)
         {
-            GraphData data =  TextSerializeStrategy.Deserialize<GraphData>(str);
+            GraphData data =  TextSerializeStrategy.Deserialize<GraphData>(str,1);
 
             Dictionary<string, NodeBase> nodeMapper = new Dictionary<string, NodeBase>();
+
+            if (_provider.UniqueMapper == null) 
+                _provider.OnBuildUniqueMapperAndMenuTree();
 
             //恢复节点信息
             foreach (var nodeData in data.nodes)
@@ -191,7 +194,7 @@ namespace FNode.Editor
                 linkData.ToPort = edge.input.name;
                 data.links.Add(linkData);
             }
-            string result = TextSerializeStrategy.Serialize(data);
+            string result = TextSerializeStrategy.Serialize(data,1);
             return result;
         }
     }

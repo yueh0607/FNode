@@ -17,7 +17,7 @@ namespace FNode.Editor
             }
         }
 
-        public abstract DataType Deserialize<DataType>(string str);
-        public abstract string Serialize<DataType>(DataType obj);
+        public abstract DataType Deserialize<DataType>(string str, int settingGroup = 0);
+        public abstract string Serialize<DataType>(DataType obj, int settingGroup = 0);
     }
 }

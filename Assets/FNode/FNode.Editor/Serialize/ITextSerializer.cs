@@ -14,7 +14,7 @@ namespace FNode.Editor
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        string Serialize<T>(T obj);
+        string Serialize<T>(T obj, int settingGroup = 0);
 
 
         /// <summary>
@@ -22,6 +22,6 @@ namespace FNode.Editor
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        T Deserialize<T>(string str);
+        T Deserialize<T>(string str, int settingGroup = 0);
     }
 }

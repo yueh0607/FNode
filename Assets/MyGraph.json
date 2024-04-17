@@ -1,0 +1,72 @@
+{
+  "nodes": [
+    {
+      "GUID": "a82f9f5b-246c-47bc-9e7b-26aa1b50c36c",
+      "Position": {
+        "x": 146.4,
+        "y": 4.0,
+        "normalized": {
+          "x": 0.9996269,
+          "y": 0.0273122117,
+          "normalized": {
+            "x": 0.999626935,
+            "y": 0.0273122136,
+            "magnitude": 1.0,
+            "sqrMagnitude": 0.99999994
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.9999998
+        },
+        "magnitude": 146.454636,
+        "sqrMagnitude": 21448.959
+      },
+      "UniqueName": "TestNode",
+      "Fields": "{}"
+    },
+    {
+      "GUID": "8d4d4180-acef-4963-9386-096cfd668551",
+      "Position": {
+        "x": 239.2,
+        "y": 256.800018,
+        "normalized": {
+          "x": 0.6815869,
+          "y": 0.731737137,
+          "magnitude": 1.0,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 350.9457,
+        "sqrMagnitude": 123162.891
+      },
+      "UniqueName": "TestNode",
+      "Fields": "{}"
+    }
+  ],
+  "links": [
+    {
+      "FromGUID": "8d4d4180-acef-4963-9386-096cfd668551",
+      "ToGUID": "a82f9f5b-246c-47bc-9e7b-26aa1b50c36c",
+      "ToPort": "TestInput",
+      "FromPort": "TestOutput"
+    }
+  ],
+  "view": {
+    "Position": {
+      "x": 0.0,
+      "y": 0.0,
+      "magnitude": 0.0,
+      "sqrMagnitude": 0.0
+    },
+    "Scale": {
+      "x": 1.0,
+      "y": 1.0,
+      "normalized": {
+        "x": 0.707106769,
+        "y": 0.707106769,
+        "magnitude": 1.0,
+        "sqrMagnitude": 0.99999994
+      },
+      "magnitude": 1.41421354,
+      "sqrMagnitude": 2.0
+    }
+  }
+}
