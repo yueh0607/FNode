@@ -18,6 +18,7 @@ namespace FNode.Editor
         public event Action<NodeBase> OnNodeCreate = null;
         public event Action<NodeBase> OnNodeRemove = null;
 
+        
         public FGraphView(EditorWindow editorWindow, FSearchMenuWindowProvider provider)
         {
             _provider = provider;
@@ -49,6 +50,10 @@ namespace FNode.Editor
             //多个node框选功能
             this.AddManipulator(new RectangleSelector());
 
+            Undo.undoRedoPerformed += () =>
+            {
+                
+            };
 
             //加载样式表和网格
             var styleSheet = EditorGUIUtility.Load("NodeGraphView.uss") as StyleSheet;
@@ -64,6 +69,7 @@ namespace FNode.Editor
                 return change;
             };
         }
+
 
 
         /// <summary>
