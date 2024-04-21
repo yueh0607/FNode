@@ -12,7 +12,7 @@ namespace FNode.Editor
     {
         private static GraphViewMenuItemAttribute[] nodeDescriptionItems = null;
 
-        private static readonly string cachePath = Path.Combine(Application.dataPath, "FNodeSetting", "GraphViewMenuItems.json");
+        private static readonly string cachePath = Path.Combine(Application.dataPath, "FNodeCache", "GraphViewMenuItems.json");
 
 
         /// <summary>
