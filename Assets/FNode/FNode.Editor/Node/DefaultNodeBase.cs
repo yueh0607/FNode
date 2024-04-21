@@ -1,10 +1,11 @@
 using FNode.Editor;
+using FNode.Runtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
-public class EmptyNodeData
+public class EmptyNodeData : RuntimeNodeData
 {
 
 }

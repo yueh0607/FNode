@@ -29,6 +29,7 @@ namespace FNode.Editor
             }
         }
 
+        public string UniqueName { get; set; } = string.Empty;
 
         /// <summary>
         /// 节点位置
@@ -46,7 +47,7 @@ namespace FNode.Editor
         /// 节点GUID显示框
         /// </summary>
         private readonly TextField _guidText;
-        public NodeBase(string nodeName)
+        internal NodeBase(string nodeName)
         {
             GUID = System.Guid.NewGuid().ToString();
             title = nodeName;
@@ -140,6 +141,8 @@ namespace FNode.Editor
         {
             this.contentContainer.Add(child);
         }
+
+
 
         protected abstract void OnDeserialize(string json);
         protected abstract string OnSerialize();

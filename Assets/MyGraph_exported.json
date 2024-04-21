@@ -1,0 +1,36 @@
+{
+  "Nodes": [
+    {
+      "$type": "TestNodeData, FNode.Sample.Runtime",
+      "textInfo": null,
+      "GUID": "acf96be0-d330-4185-892e-245ea834c2a9",
+      "UniqueName": "TestNode"
+    },
+    {
+      "$type": "TestNodeData, FNode.Sample.Runtime",
+      "textInfo": null,
+      "GUID": "7849c78f-c337-4577-8d2b-0b0bb981348b",
+      "UniqueName": "TestNode"
+    },
+    {
+      "$type": "TestNodeData, FNode.Sample.Runtime",
+      "textInfo": "123",
+      "GUID": "c541daed-3bb8-467a-9676-225d8a74b1e1",
+      "UniqueName": "TestNode"
+    }
+  ],
+  "Links": [
+    {
+      "FromGUID": "c541daed-3bb8-467a-9676-225d8a74b1e1",
+      "ToGUID": "acf96be0-d330-4185-892e-245ea834c2a9",
+      "ToPort": "TestInput",
+      "FromPort": "TestOutput"
+    },
+    {
+      "FromGUID": "c541daed-3bb8-467a-9676-225d8a74b1e1",
+      "ToGUID": "7849c78f-c337-4577-8d2b-0b0bb981348b",
+      "ToPort": "TestInput",
+      "FromPort": "TestOutput2"
+    }
+  ]
+}

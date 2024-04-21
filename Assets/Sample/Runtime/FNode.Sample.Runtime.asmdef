@@ -1,0 +1,16 @@
+{
+    "name": "FNode.Sample.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:74cac1cc8c228da4b99a906f2a27c86f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

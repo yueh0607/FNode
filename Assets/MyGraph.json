@@ -1,28 +1,69 @@
 {
   "nodes": [
     {
-      "GUID": "c541daed-3bb8-467a-9676-225d8a74b1e1",
+      "GUID": "acf96be0-d330-4185-892e-245ea834c2a9",
       "Position": {
-        "x": 1043.2,
-        "y": 128.0,
+        "x": 71.2,
+        "y": -350.4,
         "normalized": {
-          "x": 0.992556334,
-          "y": 0.121786058,
-          "normalized": {
-            "x": 0.9925564,
-            "y": 0.121786065,
-            "magnitude": 1.0,
-            "sqrMagnitude": 1.0
-          },
-          "magnitude": 0.99999994,
-          "sqrMagnitude": 0.99999994
+          "x": 0.199127078,
+          "y": -0.979973733,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
         },
-        "magnitude": 1051.02344,
-        "sqrMagnitude": 1104650.13
+        "magnitude": 357.5606,
+        "sqrMagnitude": 127849.594
       },
       "UniqueName": "TestNode",
-      "Fields": "{\r\n  \"textInfo\": \"\"\r\n}"
+      "Fields": "{\r\n  \"textInfo\": null,\r\n  \"GUID\": null,\r\n  \"UniqueName\": null\r\n}"
+    },
+    {
+      "GUID": "7849c78f-c337-4577-8d2b-0b0bb981348b",
+      "Position": {
+        "x": 172.0,
+        "y": 17.6000023,
+        "normalized": {
+          "x": 0.9948055,
+          "y": 0.101794064,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 172.898117,
+        "sqrMagnitude": 29893.76
+      },
+      "UniqueName": "TestNode",
+      "Fields": "{\r\n  \"textInfo\": null,\r\n  \"GUID\": null,\r\n  \"UniqueName\": null\r\n}"
+    },
+    {
+      "GUID": "c541daed-3bb8-467a-9676-225d8a74b1e1",
+      "Position": {
+        "x": -633.6,
+        "y": -232.0,
+        "normalized": {
+          "x": -0.9390295,
+          "y": -0.343836576,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 674.739136,
+        "sqrMagnitude": 455272.938
+      },
+      "UniqueName": "TestNode",
+      "Fields": "{\r\n  \"textInfo\": \"123\",\r\n  \"GUID\": null,\r\n  \"UniqueName\": null\r\n}"
     }
   ],
-  "links": []
+  "links": [
+    {
+      "FromGUID": "c541daed-3bb8-467a-9676-225d8a74b1e1",
+      "ToGUID": "acf96be0-d330-4185-892e-245ea834c2a9",
+      "ToPort": "TestInput",
+      "FromPort": "TestOutput"
+    },
+    {
+      "FromGUID": "c541daed-3bb8-467a-9676-225d8a74b1e1",
+      "ToGUID": "7849c78f-c337-4577-8d2b-0b0bb981348b",
+      "ToPort": "TestInput",
+      "FromPort": "TestOutput2"
+    }
+  ]
 }

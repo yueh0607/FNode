@@ -67,14 +67,46 @@ namespace FNode.Editor
         /// </summary>
         public static void FileAndDirectoryMustExist(string fileOrDir)
         {
-            if(Path.HasExtension(fileOrDir))
+            if (Path.HasExtension(fileOrDir))
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(fileOrDir));
-                if(File.Exists(fileOrDir))
+                if (File.Exists(fileOrDir))
                     File.Create(fileOrDir).Dispose();
             }
             else
                 Directory.CreateDirectory(Path.GetDirectoryName(fileOrDir));
+        }
+
+        /// <summary>
+        /// 项目路径：Assets的上级目录
+        /// </summary>
+        public static string ProjectPath
+        {
+            get
+            {
+                DirectoryInfo assetPath = new DirectoryInfo(Application.dataPath);
+                return assetPath.Parent.FullName;
+            }
+        }
+
+        /// <summary>
+        /// 路径或文件不存在抛出异常
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <exception cref="FileNotFoundException"></exception>
+        /// <exception cref="DirectoryNotFoundException"></exception>
+        public static void IfNotExistThrow(string filePath)
+        {
+            if(Path.HasExtension(filePath))
+            {
+                if (!File.Exists(filePath))
+                    throw new FileNotFoundException("文件不存在", filePath);
+            }
+            else
+            {
+                if (!Directory.Exists(filePath))
+                    throw new DirectoryNotFoundException("目录不存在");
+            }
         }
     }
 }

@@ -1,8 +1,9 @@
+using FNode.Runtime;
 using System;
 
 namespace FNode.Editor
 {
-    public abstract class GenericNodeBase<T> : NodeBase where T : class
+    public abstract class GenericNodeBase<T> : NodeBase where T : RuntimeNodeData
     {
         private T fieldsInfo = null;
 
@@ -28,14 +29,12 @@ namespace FNode.Editor
         protected override string OnSerialize()
         {
             SyncToData();
-
             return TextSerializeStrategy.Serialize(FieldsInfo, 1);
 
         }
         protected override void OnDeserialize(string json)
         {
-            T info =TextSerializeStrategy.Deserialize<T>(json,1);
-            fieldsInfo = info;
+            fieldsInfo = TextSerializeStrategy.Deserialize<T>(json, 1);
             SyncFromData();
         }
 

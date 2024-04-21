@@ -3,6 +3,7 @@ using System.IO;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class TestWindow : EditorWindow
 {
@@ -44,6 +45,15 @@ public class TestWindow : EditorWindow
         var toolbar = new Toolbar();
         var toolbarButton = new ToolbarButton { text = "工具" };
         toolbar.Add(toolbarButton);
+        Button exportBtn = new Button(() =>
+        {
+            EditorGraph2RuntimeGraph.ExportToRuntimeGraph(GraphFilePath, GraphFilePath.Replace("MyGraph.json", "MyGraph_exported.json"));
+        }) 
+        {
+            text = "导出"
+        };
+        toolbar.Add(exportBtn);
+
         view.Add(toolbar);
     }
 

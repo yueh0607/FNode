@@ -6,7 +6,7 @@
       0,
       1
     ],
-    "AssociationType": "TestNode, FNode.Sample, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "AssociationType": "TestNode, FNode.Sample.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
     "TypeId": "FNode.Editor.GraphViewMenuItemAttribute, FNode.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   }
 ]

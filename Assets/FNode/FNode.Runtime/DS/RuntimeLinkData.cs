@@ -1,12 +1,10 @@
-﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-namespace FNode.Editor
+namespace FNode.Runtime
 {
-    /// <summary>
-    /// 连接数据
-    /// </summary>
-    [Serializable]
-    public class LinkData
+    public class RuntimeLinkData
     {
         /// <summary>
         /// 起始节点
