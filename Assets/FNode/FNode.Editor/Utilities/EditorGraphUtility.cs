@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace FNode.Editor
 {
-    public static class EditorGraph2RuntimeGraph
+    public static class EditorGraphUtility
     {
 
         /// <summary>
@@ -62,25 +62,6 @@ namespace FNode.Editor
 
 
 
-        /// <summary>
-        /// 序列化运行时图数据
-        /// </summary>
-        /// <param name="grapgData"></param>
-        /// <returns></returns>
-        public static string SerializeRuntimeGraph(RuntimeGraphData grapgData)
-        {
-            return TextSerializeStrategy.Serialize<RuntimeGraphData>(grapgData, 2);
-        }
-
-        /// <summary>
-        /// 反序列化运行时图数据
-        /// </summary>
-        /// <param name="grapgData"></param>
-        /// <returns></returns>
-        public static RuntimeGraphData DeserializeRuntimeGraph(string graphStr)
-        {
-            return TextSerializeStrategy.Deserialize<RuntimeGraphData>(graphStr, 2);
-        }
 
         /// <summary>
         /// 序列化运行时图数据
@@ -111,11 +92,10 @@ namespace FNode.Editor
             FileAccessUtility.IfNotExistThrow(Path.Combine(FileAccessUtility.ProjectPath, fromProjectPath));
             var graphData = File.ReadAllText(Path.Combine(FileAccessUtility.ProjectPath, fromProjectPath));
             var editprGraphData = DeserializeEditorGraph(graphData);
-            var runtimeGraphStr = SerializeRuntimeGraph(ToRuntimeGrpah(editprGraphData));
+            var runtimeGraphStr =FNode.Runtime.RuntimeGraphUtility.SerializeRuntimeGraph(ToRuntimeGrpah(editprGraphData));
             FileAccessUtility.FileAndDirectoryMustExist(Path.Combine(FileAccessUtility.ProjectPath, toProjectPath));
             System.IO.File.WriteAllText(Path.Combine(FileAccessUtility.ProjectPath, toProjectPath), runtimeGraphStr);
             AssetDatabase.Refresh();
         }
-
     }
 }

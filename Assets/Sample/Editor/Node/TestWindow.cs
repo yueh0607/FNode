@@ -1,4 +1,5 @@
 using FNode.Editor;
+using FNode.Runtime;
 using System.IO;
 using UnityEditor;
 using UnityEditor.UIElements;
@@ -45,14 +46,28 @@ public class TestWindow : EditorWindow
         var toolbar = new Toolbar();
         var toolbarButton = new ToolbarButton { text = "工具" };
         toolbar.Add(toolbarButton);
+
+
         Button exportBtn = new Button(() =>
         {
-            EditorGraph2RuntimeGraph.ExportToRuntimeGraph(GraphFilePath, GraphFilePath.Replace("MyGraph.json", "MyGraph_exported.json"));
-        }) 
+            EditorGraphUtility.ExportToRuntimeGraph(GraphFilePath, GraphFilePath.Replace("MyGraph.json", "MyGraph_exported.json"));
+        })
         {
             text = "导出"
         };
+
+        Button debugLog = new Button(() =>
+        {
+            LogExportedGraph();
+        })
+        {
+            text = "输出导出图"
+             
+        };
+
+
         toolbar.Add(exportBtn);
+        toolbar.Add(debugLog);
 
         view.Add(toolbar);
     }
@@ -95,5 +110,23 @@ public class TestWindow : EditorWindow
     {
         string viewData = view.GetViewData();
         EditorPrefs.SetString(EditorPrefsKey, viewData);
+    }
+
+
+    void LogExportedGraph()
+    {
+#if UNITY_EDITOR
+        string exportedPath = GraphFilePath.Replace("MyGraph.json", "MyGraph_exported.json");
+        EditorGraphUtility.ExportToRuntimeGraph(GraphFilePath, exportedPath);
+#endif
+        //具体可以换成别的读取方式
+        RuntimeGraphData data = RuntimeGraphUtility.DeserializeRuntimeGraph(File.ReadAllText(exportedPath));
+
+        foreach(var entry in data.Entries)
+        {
+            Debug.Log($"入口：{entry.ToString()}");
+        }
+
+        
     }
 }

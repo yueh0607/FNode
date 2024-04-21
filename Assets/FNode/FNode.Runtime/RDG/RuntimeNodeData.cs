@@ -63,6 +63,10 @@ namespace FNode.Runtime
             }
         }
 
-
+        //ToString all members
+        public override string ToString()
+        {
+            return $"GUID:{GUID},UniqueName:{UniqueName}";
+        }
     }
 }

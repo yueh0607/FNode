@@ -45,11 +45,9 @@ namespace FNode.Runtime
             }
             foreach(var node in nodes)
             {
-                if(node.Successors.Count == 0)
+                if(node.Predecessors.Count == 0)
                     Entries.Add(node);
             }
         }
-
-
     }
 }
