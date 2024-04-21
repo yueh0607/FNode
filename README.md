@@ -7,7 +7,7 @@
 ![image](https://github.com/yueh0607/FNode/assets/102401735/de9d18b9-61b4-41e0-be6d-2070b92603d5)
 
 # 开发过程
-[Unity GraphView 打造剧情节点编辑器(2)](https://zhuanlan.zhihu.com/p/692520636)
-[Unity GraphView 打造剧情节点编辑器(2)](https://zhuanlan.zhihu.com/p/693605300)
+1. [Unity GraphView 打造剧情节点编辑器(2)](https://zhuanlan.zhihu.com/p/692520636)
+2. [Unity GraphView 打造剧情节点编辑器(2)](https://zhuanlan.zhihu.com/p/693605300)
 
 
